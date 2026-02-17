@@ -106,7 +106,7 @@ button:hover{
 
 <div class="container">
 
-    <!-- Login Form -->
+    
     <div class="form active" id="loginForm">
         <h2>Login</h2>
         <div id="loginMsg"></div>
