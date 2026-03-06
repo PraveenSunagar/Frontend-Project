@@ -160,7 +160,6 @@ button:hover{
 </div>
 
 <script>
-// Switch Forms
 function showRegister(){
     document.getElementById("loginForm").classList.remove("active");
     document.getElementById("registerForm").classList.add("active");
