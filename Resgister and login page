@@ -129,7 +129,7 @@ button:hover{
         </div>
     </div>
 
-    <!-- Register Form -->
+    
     <div class="form" id="registerForm">
         <h2>Register</h2>
         <div id="registerMsg"></div>
