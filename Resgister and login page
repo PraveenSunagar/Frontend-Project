@@ -196,7 +196,7 @@ function register(){
     setTimeout(showLogin,1000);
 }
 
-// Login Function
+// Login 
 function login(){
     let email = document.getElementById("loginEmail").value;
     let password = document.getElementById("loginPassword").value;
