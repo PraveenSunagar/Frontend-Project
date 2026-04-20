@@ -12,8 +12,6 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
-/* Navbar */
 nav {
     background: #333;
     padding: 10px 20px;
