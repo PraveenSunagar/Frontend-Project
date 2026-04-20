@@ -22,8 +22,6 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
-
-/* Logo */
 .logo {
     color: #fff;
     font-size: 22px;
