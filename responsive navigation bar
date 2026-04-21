@@ -49,7 +49,6 @@ nav {
     color: #00adb5;
 }
 
-/* Hamburger */
 .hamburger {
     display: none;
     font-size: 26px;
