@@ -56,7 +56,6 @@ nav {
     cursor: pointer;
 }
 
-/* Checkbox (hidden) */
 #menu-toggle {
     display: none;
 }
