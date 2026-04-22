@@ -28,7 +28,7 @@ nav {
     font-weight: bold;
 }
 
-/* Menu */
+/* M
 .menu {
     display: flex;
     list-style: none;
