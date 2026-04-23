@@ -26,8 +26,6 @@ nav {
     font-size: 22px;
     font-weight: bold;
 }
-
-/* M
 .menu {
     display: flex;
     list-style: none;
