@@ -59,7 +59,7 @@ nav {
     display: none;
 }
 
-/* Mobile */
+/* Mobil
 @media (max-width: 768px) {
     .menu {
         position: absolute;
