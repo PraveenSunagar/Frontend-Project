@@ -21,7 +21,7 @@ body {
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-/* Glass container */
+/* Glass 
 .container {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
