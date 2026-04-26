@@ -58,7 +58,6 @@ input::placeholder {
     color: #ddd;
 }
 
-/* Button */
 button {
     width: 100%;
     padding: 12px;
