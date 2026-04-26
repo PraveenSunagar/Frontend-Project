@@ -37,7 +37,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Input fields */
+
 .input-group {
     position: relative;
     margin-bottom: 20px;
