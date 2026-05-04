@@ -108,7 +108,7 @@ function addTask() {
     let li = document.createElement("li");
     li.textContent = taskText;
 
-    // Mark complete
+
     li.onclick = function () {
         li.classList.toggle("completed");
     };
