@@ -113,7 +113,6 @@ function addTask() {
         li.classList.toggle("completed");
     };
 
-    // Delete button
     let delBtn = document.createElement("button");
     delBtn.textContent = "X";
     delBtn.className = "delete-btn";
