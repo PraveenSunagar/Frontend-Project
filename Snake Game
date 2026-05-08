@@ -80,8 +80,6 @@ function draw(){
 
     ctx.fillStyle = "#222";
     ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    // Snake
     for(let i=0; i<snake.length; i++){
         ctx.fillStyle = i === 0 ? "#0f0" : "#7CFC00";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
