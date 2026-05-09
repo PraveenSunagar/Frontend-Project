@@ -90,7 +90,6 @@ function draw(){
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    // Movement
     if(direction === "UP") snakeY -= box;
     if(direction === "DOWN") snakeY += box;
     if(direction === "LEFT") snakeX -= box;
