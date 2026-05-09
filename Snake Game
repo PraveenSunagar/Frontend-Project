@@ -84,8 +84,6 @@ function draw(){
         ctx.fillStyle = i === 0 ? "#0f0" : "#7CFC00";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
     }
-
-    // Food
     ctx.fillStyle = "red";
     ctx.fillRect(food.x, food.y, box, box);
 
