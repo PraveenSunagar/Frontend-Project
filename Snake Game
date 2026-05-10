@@ -94,8 +94,6 @@ function draw(){
     if(direction === "DOWN") snakeY += box;
     if(direction === "LEFT") snakeX -= box;
     if(direction === "RIGHT") snakeX += box;
-
-    // Eat Food
     if(snakeX === food.x && snakeY === food.y){
         score++;
         document.getElementById("score").innerText = "Score: " + score;
