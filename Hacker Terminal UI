@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hacker Terminal</title>
 
+<style>
+    body{
+        margin:0;
+        background:black;
+        color:#00ff00;
+        font-family:monospace;
+        overflow:hidden;
+    }
+
+    .terminal{
+        padding:20px;
+        height:100vh;
+        box-sizing:border-box;
+    }
+
+    h1{
+        color:#00ff00;
+        text-align:center;
+    }
+
+    #output{
+        margin-top:20px;
+        white-space:pre-line;
+        font-size:18px;
+    }
+
+    .cursor{
+        display:inline-block;
+        width:10px;
+        background:#00ff00;
+        animation:blink 1s infinite;
+    }
+
+    @keyframes blink{
+        50%{
+            opacity:0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <h1>💻 Hacker Terminal</h1>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+const output = document.getElementById("output");
+
+const messages = [
+
+    "Initializing system...",
+    "Connecting to secure server...",
+    "Access granted...",
+    "Decrypting files...",
+    "Downloading data...",
+    "Bypassing firewall...",
+    "Injecting payload...",
+    "System hacked successfully!",
+    "Welcome, Admin 😎"
+
+];
+
+let index = 0;
+
+function showMessage(){
+
+    if(index < messages.length){
+
+        output.innerHTML += "> " + messages[index] + "\n";
+
+        index++;
+
+        setTimeout(showMessage, 1200);
+
+    }else{
+
+        output.innerHTML += "\n> ";
+
+        const cursor = document.createElement("span");
+
+        cursor.classList.add("cursor");
+
+        output.appendChild(cursor);
+    }
+}
+
+showMessage();
+
+</script>
+
+</body>
+</html>
