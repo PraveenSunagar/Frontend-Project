@@ -115,8 +115,7 @@ async function getWeather(){
         `;
 
     }catch(error){
-
-        document.getElementById("weatherResult").innerHTML =
+      document.getElementById("weatherResult").innerHTML =
         "⚠ Error fetching weather data";
 
     }
