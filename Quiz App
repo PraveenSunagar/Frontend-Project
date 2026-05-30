@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
 
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    width:400px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.option{
+    display:block;
+    margin:10px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2 id="question">Question</h2>
+
+    <div id="options"></div>
+
+    <button onclick="nextQuestion()">Next</button>
+
+    <h3 id="score"></h3>
+</div>
+
+<script>
+
+const quiz = [
+{
+    question: "What does HTML stand for?",
+    options: [
+        "Hyper Text Markup Language",
+        "High Text Machine Language",
+        "Home Tool Markup Language",
+        "Hyper Transfer Markup Language"
+    ],
+    answer: 0
+},
+{
+    question: "Which language is used for styling web pages?",
+    options: [
+        "HTML",
+        "Python",
+        "CSS",
+        "Java"
+    ],
+    answer: 2
+},
+{
+    question: "Which language is used for web page interactivity?",
+    options: [
+        "JavaScript",
+        "C",
+        "C++",
+        "SQL"
+    ],
+    answer: 0
+}
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion(){
+
+    const q = quiz[currentQuestion];
+
+    document.getElementById("question").innerText =
+    q.question;
+
+    const optionsDiv =
+    document.getElementById("options");
+
+    optionsDiv.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        optionsDiv.innerHTML += `
+        <label class="option">
+        <input type="radio"
+        name="answer"
+        value="${index}">
+        ${option}
+        </label>`;
+    });
+}
+
+function nextQuestion(){
+
+    const selected =
+    document.querySelector('input[name="answer"]:checked');
+
+    if(!selected){
+        alert("Select an answer");
+        return;
+    }
+
+    if(
+        Number(selected.value) ===
+        quiz[currentQuestion].answer
+    ){
+        score++;
+    }
+
+    currentQuestion++;
+
+    if(currentQuestion < quiz.length){
+
+        loadQuestion();
+
+    }else{
+
+        document.querySelector(".container").innerHTML =
+        `<h2>Quiz Finished 🎉</h2>
+        <h3>Your Score: ${score}/${quiz.length}</h3>`;
+    }
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
