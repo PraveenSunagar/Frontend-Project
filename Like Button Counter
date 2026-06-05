@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Like Counter</title>
 
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    width:300px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+#heart{
+    font-size:80px;
+    cursor:pointer;
+    user-select:none;
+    transition:0.3s;
+}
+
+#heart:hover{
+    transform:scale(1.1);
+}
+
+.count{
+    font-size:30px;
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>❤️ Like Counter</h2>
+
+    <div id="heart" onclick="likePost()">
+        🤍
+    </div>
+
+    <div class="count">
+        Likes: <span id="likes">0</span>
+    </div>
+
+</div>
+
+<script>
+
+let liked = false;
+let likes = 0;
+
+function likePost(){
+
+    const heart =
+    document.getElementById("heart");
+
+    if(!liked){
+
+        likes++;
+        heart.innerText = "❤️";
+        liked = true;
+
+    }else{
+
+        likes--;
+        heart.innerText = "🤍";
+        liked = false;
+    }
+
+    document.getElementById("likes").innerText =
+    likes;
+}
+
+</script>
+
+</body>
+</html>
