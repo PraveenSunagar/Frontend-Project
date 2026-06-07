@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traffic Light Simulator</title>
 
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:#0f172a;
+    font-family:Arial,sans-serif;
+}
+
+.traffic-box{
+    background:#222;
+    padding:20px;
+    border-radius:20px;
+}
+
+.light{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#444;
+    margin:15px;
+}
+
+.red.active{
+    background:red;
+    box-shadow:0 0 20px red;
+}
+
+.yellow.active{
+    background:yellow;
+    box-shadow:0 0 20px yellow;
+}
+
+.green.active{
+    background:lime;
+    box-shadow:0 0 20px lime;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+h2{
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<h2>🚦 Traffic Light Simulator</h2>
+
+<div class="traffic-box">
+    <div class="light red" id="red"></div>
+    <div class="light yellow" id="yellow"></div>
+    <div class="light green" id="green"></div>
+</div>
+
+<button onclick="changeLight()">
+    Change Light
+</button>
+
+<script>
+
+let current = 0;
+
+const lights = [
+    document.getElementById("red"),
+    document.getElementById("yellow"),
+    document.getElementById("green")
+];
+
+function changeLight(){
+
+    lights.forEach(light =>
+        light.classList.remove("active")
+    );
+
+    lights[current].classList.add("active");
+
+    current++;
+
+    if(current > 2){
+        current = 0;
+    }
+}
+
+changeLight();
+
+</script>
+
+</body>
+</html>
