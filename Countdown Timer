@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
 
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:320px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+button{
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+#timer{
+    font-size:50px;
+    font-weight:bold;
+    margin-top:20px;
+    color:#dc2626;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>⏳ Countdown Timer</h2>
+
+    <input
+        type="number"
+        id="seconds"
+        placeholder="Enter seconds">
+
+    <br>
+
+    <button onclick="startTimer()">
+        Start
+    </button>
+
+    <button onclick="resetTimer()">
+        Reset
+    </button>
+
+    <div id="timer">0</div>
+
+</div>
+
+<script>
+
+let interval;
+
+function startTimer(){
+
+    clearInterval(interval);
+
+    let time =
+    Number(document.getElementById("seconds").value);
+
+    document.getElementById("timer").innerText = time;
+
+    interval = setInterval(() => {
+
+        time--;
+
+        document.getElementById("timer").innerText =
+        time;
+
+        if(time <= 0){
+
+            clearInterval(interval);
+
+            document.getElementById("timer").innerText =
+            "⏰ Time Up!";
+        }
+
+    },1000);
+}
+
+function resetTimer(){
+
+    clearInterval(interval);
+
+    document.getElementById("timer").innerText = "0";
+
+    document.getElementById("seconds").value = "";
+}
+
+</script>
+
+</body>
+</html>
