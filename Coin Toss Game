@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coin Toss Game</title>
 
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    width:350px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+#coin{
+    font-size:100px;
+    margin:20px 0;
+    transition:0.3s;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#result{
+    margin-top:20px;
+    font-size:24px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>🪙 Coin Toss Game</h2>
+
+    <div id="coin">🪙</div>
+
+    <button onclick="tossCoin()">
+        Toss Coin
+    </button>
+
+    <div id="result">
+        Click Toss Coin
+    </div>
+
+</div>
+
+<script>
+
+function tossCoin(){
+
+    const result =
+    Math.random() < 0.5
+    ? "Heads"
+    : "Tails";
+
+    document.getElementById("coin").innerText =
+    result === "Heads" ? "🙂" : "🦅";
+
+    document.getElementById("result").innerText =
+    "Result: " + result;
+}
+
+</script>
+
+</body>
+</html>
