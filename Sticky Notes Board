@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sticky Notes</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    padding:30px;
+}
+
+h1{
+    color:white;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.top{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+textarea{
+    width:300px;
+    height:80px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    resize:none;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+#notes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.note{
+    width:220px;
+    min-height:150px;
+    background:#fef08a;
+    padding:15px;
+    border-radius:10px;
+    position:relative;
+    word-wrap:break-word;
+    box-shadow:0 5px 10px rgba(0,0,0,.3);
+}
+
+.delete{
+    position:absolute;
+    right:10px;
+    top:10px;
+    background:red;
+    color:white;
+    border:none;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h1>📝 Sticky Notes Board</h1>
+
+<div class="top">
+
+<textarea
+id="text"
+placeholder="Write your note..."></textarea>
+
+<button onclick="addNote()">
+Add Note
+</button>
+
+</div>
+
+<div id="notes"></div>
+
+<script>
+
+function addNote(){
+
+    const text =
+    document.getElementById("text").value.trim();
+
+    if(text==""){
+        alert("Enter a note");
+        return;
+    }
+
+    const note =
+    document.createElement("div");
+
+    note.className="note";
+
+    note.innerHTML=
+    `
+    <button class="delete"
+    onclick="this.parentElement.remove()">
+    ×
+    </button>
+
+    <p>${text}</p>
+    `;
+
+    document
+    .getElementById("notes")
+    .appendChild(note);
+
+    document
+    .getElementById("text")
+    .value="";
+}
+
+</script>
+
+</body>
+</html>
