@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Dashboard</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    transition:.3s;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.container{
+    max-width:900px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+.dark .card{
+    background:#333;
+}
+
+button{
+    padding:8px 15px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin:5px 0;
+}
+
+ul{
+    list-style:none;
+    margin-top:10px;
+}
+
+li{
+    background:#eee;
+    padding:8px;
+    margin:5px 0;
+}
+
+.dark li{
+    background:#555;
+}
+</style>
+</head>
+<body>
+
+<center>
+<h1>🚀 Mini Dashboard</h1>
+<button onclick="toggleTheme()">🌙 Dark Mode</button>
+</center>
+
+<div class="container">
+
+<div class="card">
+<h2>🕒 Digital Clock</h2>
+<h1 id="clock"></h1>
+</div>
+
+<div class="card">
+<h2>🔢 Counter</h2>
+<h1 id="count">0</h1>
+<button onclick="count++ ; update()">+</button>
+<button onclick="count-- ; update()">-</button>
+<button onclick="count=0 ; update()">Reset</button>
+</div>
+
+<div class="card">
+<h2>📝 To-Do</h2>
+<input id="task" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+<ul id="list"></ul>
+</div>
+
+<div class="card">
+<h2>🧮 Calculator</h2>
+<input id="num1" type="number" placeholder="First Number">
+<input id="num2" type="number" placeholder="Second Number">
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">*</button>
+<button onclick="calc('/')">/</button>
+<h3 id="answer"></h3>
+</div>
+
+<div class="card">
+<h2>💬 Random Quote</h2>
+<p id="quote">Click Button</p>
+<button onclick="quote()">New Quote</button>
+</div>
+
+</div>
+
+<script>
+
+function clock(){
+document.getElementById("clock").innerHTML=
+new Date().toLocaleTimeString();
+}
+setInterval(clock,1000);
+
+let count=0;
+
+function update(){
+document.getElementById("count").innerHTML=count;
+}
+
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
+
+function addTask(){
+
+let task=document.getElementById("task").value;
+
+if(task=="") return;
+
+let li=document.createElement("li");
+
+li.innerHTML=task;
+
+document.getElementById("list").appendChild(li);
+
+document.getElementById("task").value="";
+}
+
+function calc(op){
+
+let a=Number(document.getElementById("num1").value);
+let b=Number(document.getElementById("num2").value);
+
+let ans;
+
+if(op=="+") ans=a+b;
+if(op=="-") ans=a-b;
+if(op=="*") ans=a*b;
+if(op=="/") ans=a/b;
+
+document.getElementById("answer").innerHTML="Answer = "+ans;
+
+}
+
+const quotes=[
+"Never Give Up",
+"Practice Every Day",
+"Code More Learn More",
+"Dream Big",
+"Success Needs Hard Work"
+];
+
+function quote(){
+
+let random=Math.floor(Math.random()*quotes.length);
+
+document.getElementById("quote").innerHTML=quotes[random];
+
+}
+
+clock();
+
+</script>
+
+</body>
+</html>
