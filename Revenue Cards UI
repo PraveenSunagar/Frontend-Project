@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revenue Dashboard Cards</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    padding:40px;
+}
+
+h1{
+    margin-bottom:25px;
+    color:#222;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.icon{
+    font-size:40px;
+}
+
+.title{
+    margin-top:10px;
+    color:#666;
+    font-size:15px;
+}
+
+.value{
+    margin-top:10px;
+    font-size:30px;
+    font-weight:bold;
+    color:#222;
+}
+
+.change{
+    margin-top:10px;
+    color:green;
+    font-weight:bold;
+}
+
+button{
+    margin-top:35px;
+    padding:12px 20px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+</style>
+
+</head>
+<body>
+
+<h1>📊 Revenue Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">💰</div>
+<div class="title">Total Revenue</div>
+<div class="value" id="revenue">$12,500</div>
+<div class="change">▲ +12%</div>
+</div>
+
+<div class="card">
+<div class="icon">📦</div>
+<div class="title">Orders</div>
+<div class="value" id="orders">850</div>
+<div class="change">▲ +8%</div>
+</div>
+
+<div class="card">
+<div class="icon">👥</div>
+<div class="title">Customers</div>
+<div class="value" id="customers">1,250</div>
+<div class="change">▲ +5%</div>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<div class="title">Profit</div>
+<div class="value" id="profit">$5,450</div>
+<div class="change">▲ +15%</div>
+</div>
+
+</div>
+
+<button onclick="updateData()">Refresh Revenue</button>
+
+<script>
+
+function random(min,max){
+    return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function updateData(){
+
+document.getElementById("revenue").innerHTML =
+"$"+random(10000,50000).toLocaleString();
+
+document.getElementById("orders").innerHTML =
+random(500,2500);
+
+document.getElementById("customers").innerHTML =
+random(1000,5000);
+
+document.getElementById("profit").innerHTML =
+"$"+random(3000,20000).toLocaleString();
+
+}
+
+</script>
+
+</body>
+</html>
