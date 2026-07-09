@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Dashboard</title>
 
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fc;
+padding:25px;
+transition:.3s;
+}
+
+.dark{
+background:#111827;
+color:white;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+background:#2563eb;
+color:white;
+cursor:pointer;
+border-radius:6px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.dark .card{
+background:#1f2937;
+}
+
+.card h2{
+margin-top:10px;
+color:#2563eb;
+font-size:30px;
+}
+
+table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+background:white;
+}
+
+.dark table{
+background:#1f2937;
+}
+
+th,td{
+padding:14px;
+border:1px solid #ddd;
+text-align:left;
+}
+
+th{
+background:#2563eb;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>🏥 Hospital Dashboard</h1>
+
+<button onclick="darkMode()">Dark Mode</button>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>👨‍⚕️ Doctors</h3>
+<h2 id="doctor">25</h2>
+</div>
+
+<div class="card">
+<h3>🧑 Patients</h3>
+<h2 id="patient">320</h2>
+</div>
+
+<div class="card">
+<h3>📅 Appointments</h3>
+<h2 id="appointment">65</h2>
+</div>
+
+<div class="card">
+<h3>🛏 Available Beds</h3>
+<h2 id="beds">42</h2>
+</div>
+
+</div>
+
+<table>
+
+<tr>
+<th>Patient</th>
+<th>Doctor</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Rahul</td>
+<td>Dr. Kumar</td>
+<td>Waiting</td>
+</tr>
+
+<tr>
+<td>Priya</td>
+<td>Dr. Sharma</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Anil</td>
+<td>Dr. Reddy</td>
+<td>In Progress</td>
+</tr>
+
+</table>
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+setInterval(()=>{
+
+document.getElementById("doctor").innerHTML=
+20+Math.floor(Math.random()*10);
+
+document.getElementById("patient").innerHTML=
+300+Math.floor(Math.random()*80);
+
+document.getElementById("appointment").innerHTML=
+50+Math.floor(Math.random()*20);
+
+document.getElementById("beds").innerHTML=
+30+Math.floor(Math.random()*20);
+
+},3000);
+
+</script>
+
+</body>
+</html>
