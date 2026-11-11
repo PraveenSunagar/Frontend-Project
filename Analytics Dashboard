@@ -16,7 +16,6 @@ background:#f5f7fa;
 padding:30px;
 transition:.3s;
 }
-
 .dark{
 background:#121212;
 color:white;
